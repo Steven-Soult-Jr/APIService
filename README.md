@@ -49,3 +49,6 @@ GET /user/tweets?username=john@marketo.com
 
 example response body: { "good morning everyone!", "today i'm going to the beach", "a random useless life observation" } 
 ```
+
+
+#### Files in [node_modules](/node_modules] are owned by their respective creators, all license information is located within.
