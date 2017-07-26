@@ -1,13 +1,22 @@
 # APIService
 
-This is a simple twitter-like service, prototyped with Node.js and an SQLite3 database. It should run on any machine with [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed. Both of the following commands should work from inside the unzipped folder (dev uses nodemon):
+This is a simple twitter-like service, prototyped with Node.js and an SQLite3 database. It should run on any machine with [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed. npm might need to install the following dependencies:
   ```
-  npm run dev
-  
+	npm install nodemon node-pre-gyp sqlite3
+  ```
+  The service can be started with 
+  ```
   npm run start
   ```
+  Or, if working on development, you can use 
+  ```
+  npm run dev
+  ```
+  to start the service with nodemon, which will automatically restart the service if changes are made to the source files on disk.
   
-I used [Postman](https://www.getpostman.com/) to test the API. The services runs on localhost:8000 by default, this can be changed in [index.js](index.js), line 9.
+I used [Postman](https://www.getpostman.com/) to test the API. The services runs on localhost:8000 by default, this can be changed in [index.js](index.js), line 9. [Here is an example test](http://i.imgur.com/GHFVdVr.png).
+
+The majority of the code can be found in [routes.js](/app/routes/routes.js)
 
 ## APIs:
 

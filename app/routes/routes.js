@@ -1,6 +1,9 @@
 module.exports = function(app, db) {
 	
-	// This function handles POST requests for adding a new user.
+	/* This function handles POST requests for adding a new user.
+	* input: username, lastName, and firstName as part of the POST.
+	* output: A confirmation string.
+	*/
 	app.post('/user', (req, res) => {
 		if(req.body.username && req.body.lastName && req.body.firstName) {
 			// This code is executed if the proper values were sent through POST.
@@ -13,7 +16,10 @@ module.exports = function(app, db) {
 		}
 	});
 	
-	// This function handles POST requests for following users.
+	/* This function handles POST requests for following users.
+	* input: username and followname as part of the POST.
+	* output: A confirmation string.
+	*/
 	app.post('/user/follow', (req, res) => {
 		if(req.body.username && req.body.followname) {
 			// If the entry already exists, the command is just ignored.
@@ -24,14 +30,17 @@ module.exports = function(app, db) {
 		}
 	});
 	
-	// This function handles GET requests for a user's followers.
+	/* This function handles GET requests for a user's followers.
+	* input: username as part of the GET.
+	* output: An array of usernames.
+	*/
 	app.get('/user/followers', (req, res) => {
 		if(req.query.username) {
 			db.all("SELECT DISTINCT username FROM Followers WHERE followname = ? LIMIT 10", [req.query.username], function(err, results) {
 				if(err)
 					console.log(err);
 				
-				// This block of code just turns the results into an array of usernames, removing the extra parts.
+				// This turns the results into an array of usernames, removing the extra parts.
 				var list = [];
 				results.forEach(function(element) {
 					list.push(element.username);
@@ -46,7 +55,10 @@ module.exports = function(app, db) {
 		}
 	});
 	
-	// This function handles POST requests for sending 'tweets'.
+	/* This function handles POST requests for sending 'tweets'.
+	* input: username and message as part of the POST.
+	* output: A confirmation string.
+	*/
 	app.post('/user/tweet', (req, res) => {
 		if(req.body.username && req.body.message) {
 			// A new tweet is added into the database
@@ -57,7 +69,10 @@ module.exports = function(app, db) {
 		}
 	});
 	
-	// This function handles GET requests for a user's 'tweets'.
+	/* This function handles GET requests for a user's 'tweets'.
+	* input: username as part of the GET.
+	* output: An array of tweets.
+	*/
 	app.get('/user/tweets', (req, res) => {
 		if(req.query.username) {
 			// Up to 10 tweets are retrieved from the database sent by the given user. Modify LIMIT 10 to change how many are gotten.
@@ -65,7 +80,7 @@ module.exports = function(app, db) {
 				if(err)
 					console.log(err);
 				
-				// This block of code just turns the results into an array of messages, removing the extra parts.
+				// This turns the results into an array of messages, removing the extra parts.
 				var list = [];
 				results.forEach(function(element) {
 					list.push(element.message);
