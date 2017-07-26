@@ -51,4 +51,4 @@ example response body: { "good morning everyone!", "today i'm going to the beach
 ```
 
 
-#### Files in [node_modules](/node_modules] are owned by their respective creators, all license information is located within.
+#### Files in [node_modules](/node_modules) are owned by their respective creators, all license information is located within.
