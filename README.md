@@ -1,6 +1,6 @@
 # APIService
 
-This is a simple twitter-like service, prototyped with Node.js and an SQLite3 database. It should run on any machine with [node.js](https://nodejs.org/en/) installed (tested on windows). Both of the following commands should work from inside the unzipped folder (dev uses nodemon):
+This is a simple twitter-like service, prototyped with Node.js and an SQLite3 database. It should run on any machine with [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed. Both of the following commands should work from inside the unzipped folder (dev uses nodemon):
   ```
   npm run dev
   
